@@ -12,8 +12,17 @@ class QueueElement: SequenceElement {
 
     let length: Int
     var tasksInQueue: Int = 0
-    var isNextFull: Bool {
-        return subelements.filter { element in !element.isFull }.count == 0
+    var totalQueued: Int = 0
+    var isEmpty: Bool {
+        return tasksInQueue == 0
+    }
+    var averageQueue: Double {
+
+        print(totalTicks)
+        return Double(totalQueued) / Double(totalTicks)
+    }
+    var isNextEmpty: Bool {
+        return subelements.filter { element in !element.isFull }.count > 0 && isEmpty
     }
 
     init(length: Int) {
@@ -37,6 +46,7 @@ class QueueElement: SequenceElement {
         if tasksInQueue < length {
             isFull = false
         }
+        totalQueued += tasksInQueue
     }
 
     override func add() {

@@ -14,6 +14,8 @@
 		50114800234B85DC00682713 /* ProcessorElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501147FF234B85DC00682713 /* ProcessorElement.swift */; };
 		50114802234BDD4B00682713 /* QueueElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114801234BDD4B00682713 /* QueueElement.swift */; };
 		50114806234BE2D800682713 /* StateAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114805234BE2D800682713 /* StateAnalyzer.swift */; };
+		5011480B234D0A3C00682713 /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011480A234D0A3C00682713 /* Equation.swift */; };
+		505D14102353270E007C7BB1 /* ExitElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D140F2353270E007C7BB1 /* ExitElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,8 @@
 		501147FF234B85DC00682713 /* ProcessorElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessorElement.swift; sourceTree = "<group>"; };
 		50114801234BDD4B00682713 /* QueueElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueElement.swift; sourceTree = "<group>"; };
 		50114805234BE2D800682713 /* StateAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateAnalyzer.swift; sourceTree = "<group>"; };
+		5011480A234D0A3C00682713 /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
+		505D140F2353270E007C7BB1 /* ExitElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		501147EF234B784200682713 /* lab3 */ = {
 			isa = PBXGroup;
 			children = (
+				50114809234D0A2A00682713 /* Equation */,
 				50114804234BE2A100682713 /* StateAnalyzer */,
 				501147FE234B85B900682713 /* Elements */,
 				501147F0234B784200682713 /* main.swift */,
@@ -84,6 +89,7 @@
 				501147F9234B792B00682713 /* SourceElement.swift */,
 				501147FF234B85DC00682713 /* ProcessorElement.swift */,
 				50114801234BDD4B00682713 /* QueueElement.swift */,
+				505D140F2353270E007C7BB1 /* ExitElement.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -94,6 +100,14 @@
 				50114805234BE2D800682713 /* StateAnalyzer.swift */,
 			);
 			name = StateAnalyzer;
+			sourceTree = "<group>";
+		};
+		50114809234D0A2A00682713 /* Equation */ = {
+			isa = PBXGroup;
+			children = (
+				5011480A234D0A3C00682713 /* Equation.swift */,
+			);
+			name = Equation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,8 +173,10 @@
 				501147F1234B784200682713 /* main.swift in Sources */,
 				501147F8234B785C00682713 /* SequenceElement.swift in Sources */,
 				50114800234B85DC00682713 /* ProcessorElement.swift in Sources */,
+				505D14102353270E007C7BB1 /* ExitElement.swift in Sources */,
 				501147FA234B792B00682713 /* SourceElement.swift in Sources */,
 				501147FC234B7A6E00682713 /* DoubleRandomExtension.swift in Sources */,
+				5011480B234D0A3C00682713 /* Equation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

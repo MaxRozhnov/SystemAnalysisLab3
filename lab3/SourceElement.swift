@@ -11,6 +11,7 @@ class SourceElement: SequenceElement {
     var totalGenerated = 0
     var totalDropped = 0
     var notGenerateProbability: Double
+    var timers = [Int]()
 
     init(notGenerateProbability: Double, isBlockable: Bool) {
         self.notGenerateProbability = notGenerateProbability
@@ -18,19 +19,20 @@ class SourceElement: SequenceElement {
         self.isBlockable = isBlockable
     }
 
+    func stopTimer() -> Int {
+        return timers.remove(at: 0)
+    }
+
     override func work() {
         if isBlockable {
             if isFull {
-                if let emptySubelement = subelements.first(where: { element in !element.isFull }) {
-                    emptySubelement.add()
+                if didAddToNext() {
                     isFull = false
                 }
             }
             if !isFull {
                 if generated() {
-                    if let emptySubelement = subelements.first(where: { element in !element.isFull }) {
-                        emptySubelement.add()
-                    } else {
+                    if !didAddToNext() {
                         isFull = true
                     }
                 }
@@ -38,13 +40,13 @@ class SourceElement: SequenceElement {
             isBlocked = isFull
         } else {
             if generated() {
-                if let emptySubelement = subelements.first(where: { element in !element.isFull }) {
-                    emptySubelement.add()
-                } else {
+                if !didAddToNext() {
                     totalDropped += 1
                 }
             }
         }
+        timers = timers.map { $0 + 1 }
+        
     }
 
     //Non-blockable sources don't have a state.
@@ -61,6 +63,7 @@ class SourceElement: SequenceElement {
         let didGenerate = Double.random > notGenerateProbability ? true : false
         if didGenerate {
             totalGenerated += 1
+            timers.append(0)
         }
         return didGenerate
     }

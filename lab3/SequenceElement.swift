@@ -31,6 +31,30 @@ class SequenceElement {
 
     func add() { }
     func work() { }
+    func didAddToNext() -> Bool {
+        var didAdd = false
+        var possibleNexts = [SequenceElement]()
+        for subelement in (subelements.filter { subelement in !subelement.isFull }) {
+            if didAdd {
+                break
+            }
+            if let queueElement = subelement as? QueueElement {
+                if queueElement.isNextEmpty {
+                    queueElement.add()
+                    didAdd = true
+                } else {
+                    possibleNexts.append(subelement)
+                }
+            } else {
+                possibleNexts.append(subelement)
+            }
+        }
+        if !didAdd, let next = possibleNexts.first {
+            next.add()
+            didAdd = true
+        }
+        return didAdd
+    }
 
     private func logStats() {
         totalTicks += 1
